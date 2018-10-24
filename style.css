@@ -1,0 +1,80 @@
+body{
+  background: black;
+  color: #ccc;
+}
+.clearfix::after{
+  content:  '';
+  display: block;
+  clear: both;
+}
+a{
+  color: inherit;
+  text-decoration: none;
+}
+ul,ol{
+  list-style: none;
+}
+.topNavBar{
+  padding: 20px 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.topNavBar-inner{
+  padding: 0 16px;
+}
+.topNavBar .logo{
+  float: left;
+}
+.topNavBar nav{
+  float: right;
+  padding-top: 8px;
+}
+.topNavBar nav ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.topNavBar nav ul li{
+  margin: 0 17px;
+  text-align: center;
+  float: left;
+}
+.topNavBar nav ul li a{
+  font-size: 12px;
+  color: #B7B7B7;
+  text-decoration: none;
+  font-weight: bold;
+  /*解决a标签hover边框之后抖动*/
+  border-top: 2px solid transparent; 
+  border-bottom: 2px solid transparent;
+  padding: 5px 0;
+  /*解决a包裹不住li*/
+  display: block;
+}
+.topNavBar nav ul li a:hover{
+  border-bottom: 2px solid #E06567;
+}
+.topNavBar .logo{
+  padding: 2px;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Arial Black";
+}
+.topNavBar .logo .rs{
+ color:  #E6686A;
+ margin-right: 4px;
+}
+.topNavBar .log .card{
+  color: #9A9DA2;
+}
+.banner{
+  background: url(./bg.jpeg) center center no-repeat;
+  height: 600px;
+  background-size: cover;
+ }
+ .banner .mask{
+  height: 600px;
+  background-color: rgba(0,0,0,0.8);
+ }
