@@ -1,6 +1,6 @@
 *{padding: 0; margin: 0;}
 body{
-  background: black;
+  background: #ccc;
   color: #ccc;
 }
 .clearfix::after{
@@ -88,8 +88,8 @@ hr{
   max-width: 940px;
   margin: 0 auto;
   background-color: #fff;
-  border: 1px solid red;
   color: black;
+  margin-top: -20%;
 }
 .userCard .welcome{
   background-color: #E6686A;
@@ -137,4 +137,28 @@ hr{
 .userCard dl dd{
   width: 70%;
   color: #9da0a7;
+}
+.userCard footer.media{
+  background-color: #E6686A;
+  text-align: center;
+}
+
+.userCard footer.media a{
+  display: inline-block;
+  border-radius: 50%;
+  padding: 5px 0;
+  width: 40px;
+  line-height: 30px;
+  margin: 16px;
+}
+
+.userCard footer.media a:hover{
+  background-color: #CF5D5F;
+}
+.userCard svg{
+  width: 30px;
+  height: 30px;
+  fill: white;
+  /*解决距离盒子上下距离不一样*/
+  vertical-align: top;
 }
