@@ -1,7 +1,7 @@
 *{padding: 0; margin: 0;}
 body{
   background: #ccc;
-  color: #ccc;
+  color: black;
 }
 .clearfix::after{
   content:  '';
@@ -90,6 +90,7 @@ hr{
   background-color: #fff;
   color: black;
   margin-top: -20%;
+  box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5)
 }
 .userCard .welcome{
   background-color: #E6686A;
@@ -120,7 +121,7 @@ hr{
   margin-top: 18px;
 }
 .userCard .text hr{
-  margin: 20px 0;
+  margin: 15px 0;
 }
 .userCard .pictureAndText{
   padding: 50px;
@@ -131,11 +132,11 @@ hr{
   padding: 5px 0;
 }
 .userCard dl dt{
-  width: 30%;
+  width: 40%;
   font-weight: bold;
 }
 .userCard dl dd{
-  width: 70%;
+  width: 60%;
   color: #9da0a7;
 }
 .userCard footer.media{
@@ -149,7 +150,7 @@ hr{
   padding: 5px 0;
   width: 40px;
   line-height: 30px;
-  margin: 16px;
+  margin: 15px;
 }
 
 .userCard footer.media a:hover{
@@ -161,4 +162,31 @@ hr{
   fill: white;
   /*解决距离盒子上下距离不一样*/
   vertical-align: top;
+}
+body > main{
+  margin-top: -340px;
+}
+body main .downloadResume-wrapper{
+  text-align: center;
+}
+body main .downloadResume{
+  font-size: 14px;
+  line-height: 16px;
+  padding: 21px 55px;
+  border: 1px solid #CDCFD1;
+  background: #EFEFEF;
+  display: inline-block;
+  border-radius: 2px;
+  color: #3d4451;
+  font-weight: bold;
+  margin: 32px 0;
+  transition: box-shadow 1s;
+}
+body main .downloadResume:hover{
+  box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.3)
+}
+.selfIntroduction{
+  max-width: 940px;
+  margin: 0 auto;
+  text-align: center;
 }
