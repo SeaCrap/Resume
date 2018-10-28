@@ -1,3 +1,16 @@
+.loading{  height: 100px;  width: 100px;  position: relative;}
+.loading::before,
+.loading::after{  content: '';  width: 0px;  height: 0px;  border-radius: 50%;  background: black;
+  position: absolute;  left: 0;  top: 0;  right: 0;  bottom: 0;  margin: auto;  animation: s 1.5s linear infinite;}
+.loading::after{  animation-delay: 0.75s;}
+@keyframes s{  0%{ width: 0; height: 0; opacity: 1;}  100%{ width: 100px; height: 100px; opacity: 0;}}
+.set-welcome{  display: none;  position: fixed;  top: 0; left: 0; 
+  width: 100%; height: 100%;background: #ccc; z-index: 1; justify-content: center; align-items: center;}
+.set-welcome.active{
+  /*block 元素使用flex定位不会居中*/
+  /*display: block;*/
+  display: flex;
+}
 *{ padding: 0; margin: 0;}
 body{ background: #ccc;color: black;}
 .clearfix::after{ content: ''; display: block; clear: both;}
@@ -61,17 +74,8 @@ section.skills ol li{  float: left;  /*width: 50%;*/  width: 47%;
   /*padding-right: 20px;*/
 }
 section.skills ol li:nth-child(even){  float: right;}
-section.skills .progressBar{  height: 5px;  background-color: #FAE1E1;  border-radius: 2px;  margin: 4px 0 40px;
-}
+section.skills .progressBar{  height: 5px;  background-color: #FAE1E1;  border-radius: 2px;  margin: 4px 0 40px;}
 section.skills .progressBar .progress{  height: 100%;  background-color: #E6686A;  width: 60%;}
-
-
-
-
-
-
-
-
 
 
 
