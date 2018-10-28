@@ -19,7 +19,7 @@
   <div id="setWelcome" class="set-welcome active">
     <div class="loading"></div>
   </div>
-  <div class="topNavBar">
+  <div id="topNavBar" class="topNavBar">
     
     <div class="topNavBar-inner clearfix">
       
@@ -84,7 +84,7 @@
         <a href="#">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-qq-copy"></use>
-          </svg> 
+          </svg>
         </a>
         <a href="#">
           <svg class="icon" aria-hidden="true">
@@ -202,7 +202,14 @@
   <script>
     setTimeout(()=>{
       setWelcome.classList.remove('active')
-    },3000)
+    },2000)
+    window.onscroll = (e)=>{
+      if(window.scrollY > 0){
+        topNavBar.classList.add('sticky')
+      }else{
+        topNavBar.classList.remove('sticky')
+      }
+    }
   </script>
 </body>
 </html>
