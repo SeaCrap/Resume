@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <title>我的简历</title>
   <link rel="stylesheet" href="./main.css">
-  <script src="./main.js"></script>
-  <script src="//at.alicdn.com/t/font_549417_yc3s79cpq9n.js"></script>
-  <style type="text/css">
+    <style type="text/css">
   .icon {
     width: 1em; height: 1em;
     vertical-align: -0.15em;
@@ -35,16 +33,16 @@
           <li>
             <a href="#">技能</a>
           </li>
-          <li class="menuTigger">
-            <a href="#">作品</a>
+          <li>
+            <a class="menuTigger"  href="#">作品</a>
             <ul class="submenu">
               <li>作品1</li>
               <li>作品2</li>
               <li>作品3</li>
             </ul>
           </li>
-          <li class="menuTigger">
-            <a href="#">博客</a>
+          <li>
+            <a class="menuTigger" href="#">博客</a>
             <ul class="submenu">
               <li>博客1</li>
               <li>博客2</li>
@@ -59,6 +57,7 @@
           </li>
         </ul>
       </nav>
+    
     </div>
   </div>
   
@@ -221,10 +220,13 @@
     </div>
   </section>
 
+ <script src="//at.alicdn.com/t/font_549417_yc3s79cpq9n.js"></script>
  <script>
-    setTimeout(()=>{
+    
+   setTimeout(()=>{
       setWelcome.classList.remove('active')
-    },2000)
+   },2000)
+    
     window.onscroll = (e)=>{
       if(window.scrollY > 0){
         topNavBar.classList.add('sticky')
@@ -232,6 +234,39 @@
         topNavBar.classList.remove('sticky')
       }
     }
+  
+  window.onscroll = (e)=>{
+    if(window.scrollY > 0){
+      topNavBar.classList.add('sticky')
+    }else{
+      topNavBar.classList.remove('sticky')
+    }
+  }
+
+
+  let aTags = document.getElementsByClassName('menuTigger')
+  console.log(aTags)
+  for(let i=0; i<aTags.length; i++){
+    aTags[i].onmouseenter = function(e){
+      let a = e.currentTarget
+      let brother = a.nextSibling
+      while(brother.nodeType === 3){
+        brother = brother.nextSibling
+      }
+      brother.classList.add('active')
+    }
+    aTags[i].onmouseleave = function(e){
+      let a = e.currentTarget
+      let brother = a.nextSibling
+      while(brother.nodeType === 3){
+        brother = brother.nextSibling
+      }
+      brother.classList.remove('active')
+    }
+
+  }
+
+
  </script>
 </body>
 </html>
