@@ -250,7 +250,7 @@
     aTags[i].onmouseenter = function(e){
       let a = e.currentTarget
       let brother = a.nextSibling
-      while(brother.nodeType === 3){
+      while(brother.tagName !== 'UL'){
         brother = brother.nextSibling
       }
       brother.classList.add('active')
@@ -258,7 +258,7 @@
     aTags[i].onmouseleave = function(e){
       let a = e.currentTarget
       let brother = a.nextSibling
-      while(brother.nodeType === 3){
+      while(brother.tagName !== 'UL'){
         brother = brother.nextSibling
       }
       brother.classList.remove('active')
