@@ -33,7 +33,7 @@ hr{  height: 0;  border: none;  border-top: 1px solid #DEDEDE;}
 .topNavBar .submenu li{  white-space: nowrap; padding: 3px 0;}
 @keyframes submenuSlide{
   0%{
-    margin-right: 100%; //这里100%是指距离父元素100%
+    margin-right: 100%; /*这里100%是指距离父元素100%*/
   }
   100%{
     margin-right: 0%;

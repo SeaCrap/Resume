@@ -25,7 +25,7 @@
         <span class="rs">RS</span><span class="card">card</span>
       </a>
       
-      <nav>
+      <nav class="menu">
         <ul class="clearfix">
           <li>
             <a href="#">关于</a>
@@ -33,7 +33,7 @@
           <li>
             <a href="#">技能</a>
           </li>
-          <li class="menuTigger"  >
+          <li>
             <a href="#">作品</a>
             <ul class="submenu">
               <li>作品1</li>
@@ -41,7 +41,7 @@
               <li>作品3</li>
             </ul>
           </li>
-          <li class="menuTigger"  >
+          <li>
             <a href="#">博客</a>
             <ul class="submenu">
               <li>博客1</li>
@@ -244,7 +244,7 @@
   }
 
 
-  let liTags = document.getElementsByClassName('menuTigger')
+  let liTags = document.querySelectorAll('nav.menu ul li')
   for(let i=0; i<liTags.length; i++){
     liTags[i].onmouseenter = function(e){
       e.currentTarget.classList.add('active')
