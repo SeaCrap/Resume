@@ -259,13 +259,22 @@
   for(let i=0; i < aTags.length; i++){
     aTags[i].onclick = (e)=>{
       e.preventDefault() 
-     // let a = e.currentTarget
-     // let href = a.getAttribute('href') 
-     // let element = document.querySelector(href) 
-     // let top = element.offsetTop
-      //这一句等于上边四句
       let top = document.querySelector(e.currentTarget.getAttribute('href')).offsetTop
-      window.scrollTo(0, top - 80)
+      
+      let n = 25 //一共动25次
+      let duration = 500 / n  //多长时间动一次
+      let currentTop = window.scrollY //当前top值 滚动会有变化
+      let targetTop = top - 80 //目标top值
+      let distance = (targetTop - currentTop) / n //每次移动多少距离
+      let i = 0 //次数
+      let 闹钟 = setInterval(()=>{
+        if(i === n){
+          window.clearInterval(闹钟)
+          return //不return出去 i=i+1 会一直加下去
+        } 
+        i = i + 1
+        window.scrollTo(0, currentTop + distance * i) 
+      },duration)
     }
   }
  </script>
