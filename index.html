@@ -28,13 +28,13 @@
       <nav class="menu">
         <ul class="clearfix">
           <li>
-            <a href="#">关于</a>
+            <a href="#seteAbout">关于</a>
           </li>
           <li>
-            <a href="#">技能</a>
+            <a href="#seteSkills">技能</a>
           </li>
           <li>
-            <a href="#">作品</a>
+            <a href="#seteWorks">作品</a>
             <ul class="submenu">
               <li>作品1</li>
               <li>作品2</li>
@@ -66,7 +66,7 @@
   </div>
   
   <main>
-    <div class="userCard">
+    <div id="seteAbout" class="userCard">
       <div class="pictureAndText clearfix">
         <div class="picture">
           <img src="./img/avatar.jpg" alt="">
@@ -138,7 +138,7 @@
     </p>
   </main>
   
-  <section class="skills">
+  <section id="seteSkills" class="skills">
     
     <h2>技能</h2>
     
@@ -201,7 +201,7 @@
     </ol>
   </section>
   
-  <section>
+  <section id="seteWorks">
     
     <h2> 作品集</h2>
     
@@ -222,7 +222,8 @@
 
  <script src="//at.alicdn.com/t/font_549417_yc3s79cpq9n.js"></script>
  <script>
-    
+  
+   // 加载动画
    setTimeout(()=>{
       setWelcome.classList.remove('active')
    },2000)
@@ -234,7 +235,7 @@
         topNavBar.classList.remove('sticky')
       }
     }
-  
+  //导航动画
   window.onscroll = (e)=>{
     if(window.scrollY > 0){
       topNavBar.classList.add('sticky')
@@ -243,19 +244,32 @@
     }
   }
 
-
+  //导航下拉菜单以及动画效果
   let liTags = document.querySelectorAll('nav.menu ul li')
   for(let i=0; i<liTags.length; i++){
-    liTags[i].onmouseenter = function(e){
+    liTags[i].onmouseenter = (e)=>{
       e.currentTarget.classList.add('active')
     }
     liTags[i].onmouseleave = function(e){
       e.currentTarget.classList.remove('active')
     }
-
   }
-
-
+  //滚动到指定模块
+  let aTags = document.querySelectorAll('nav.menu ul li a')
+  for(let i=0; i < aTags.length; i++){
+    aTags[i].onclick = (e)=>{
+      //阻止 a 默认动作
+      e.preventDefault() 
+      let a = e.currentTarget
+      //a.getAttribute('href')：这里的href不是浏览器解析过的 是自己定义的 #setAbout等
+      let href = a.getAttribute('href') 
+      let element = document.querySelector(href)
+      //.offsetTop：模块距离顶部的固定距离 不会因窗口滚动而改变
+      let top = element.offsetTop 
+      //scrollTo：滚动到(一个点到另一个点)
+      window.scrollTo(0, top - 80)
+    }
+  }
  </script>
 </body>
 </html>
