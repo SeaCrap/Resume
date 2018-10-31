@@ -219,22 +219,21 @@
       <div class="small"></div>
     </div>
   </section>
-
- <script src="//at.alicdn.com/t/font_549417_yc3s79cpq9n.js"></script>
- <script>
-  
-   // 加载动画
-   setTimeout(()=>{
-      setWelcome.classList.remove('active')
-   },2000)
+<script src="//at.alicdn.com/t/font_549417_yc3s79cpq9n.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
+<script>
+  // 加载动画
+  setTimeout(()=>{
+    setWelcome.classList.remove('active')
+  },2000)
     
-    window.onscroll = (e)=>{
-      if(window.scrollY > 0){
-        topNavBar.classList.add('sticky')
-      }else{
-        topNavBar.classList.remove('sticky')
-      }
+  window.onscroll = (e)=>{
+    if(window.scrollY > 0){
+      topNavBar.classList.add('sticky')
+    }else{
+      topNavBar.classList.remove('sticky')
     }
+  }
   //导航动画
   window.onscroll = (e)=>{
     if(window.scrollY > 0){
@@ -246,8 +245,8 @@
 
   //导航下拉菜单以及动画效果
   let liTags = document.querySelectorAll('nav.menu ul li')
-  for(let i=0; i<liTags.length; i++){
-    liTags[i].onmouseenter = (e)=>{
+    for(let i=0; i<liTags.length; i++){
+      liTags[i].onmouseenter = (e)=>{
       e.currentTarget.classList.add('active')
     }
     liTags[i].onmouseleave = function(e){
@@ -256,28 +255,35 @@
   }
   //滚动到指定模块
   let aTags = document.querySelectorAll('nav.menu ul li a') 
+  
+  //TWEEN.js代码
+  function animate(time) {
+    requestAnimationFrame(animate);
+    TWEEN.update(time);
+  }
+  requestAnimationFrame(animate); 
+  
+ 
   for(let i=0; i < aTags.length; i++){
     aTags[i].onclick = (e)=>{
       e.preventDefault() 
       let top = document.querySelector(e.currentTarget.getAttribute('href')).offsetTop
-      
-      let n = 25 //共运动25次
-      let t = 500 / n //多久动一次
-      let currentTop = window.scrollY //当前top值 滚动会有变化
-      let targetTop = top - 80 //目标top值
-      let S = targetTop - currentTop //总距离
-      let s = S / n //每次移动距离
-      let i = 0 //次数
-      let 闹钟 = setInterval(()=>{
-        if(i === n){
-          window.clearInterval(闹钟)
-          return //不return出去 i=i+1 会一直加下去
-        } 
-        i = i + 1
-        window.scrollTo(0, currentTop + s * i) 
-      },t)
+      let currentTop = window.scrollY
+      let targetTop = top - 80
+      let s = targetTop - currentTop
+      let t = Math.abs((s/100)*3000) //时间不能为负 求绝对正值
+      if(t>500){ t = 500}
+      //TWEEN.js代码
+      var coords = { y: currentTop}; //初始top 
+      var tween = new TWEEN.Tween(coords) 
+        .to({ y: targetTop}, t) 
+        .easing(TWEEN.Easing.Quadratic.InOut) //加速再减速 
+        .onUpdate(function() { // 
+          window.scrollTo(0,coords.y)
+        })
+        .start();
     }
   }
- </script>
+</script>
 </body>
 </html>
