@@ -255,7 +255,7 @@
     }
   }
   //滚动到指定模块
-  let aTags = document.querySelectorAll('nav.menu ul li a')
+  let aTags = document.querySelectorAll('nav.menu ul li a') //querySelectorAll：获取所有元素
   for(let i=0; i < aTags.length; i++){
     aTags[i].onclick = (e)=>{
       //阻止 a 默认动作
@@ -263,7 +263,7 @@
       let a = e.currentTarget
       //a.getAttribute('href')：这里的href不是浏览器解析过的 是自己定义的 #setAbout等
       let href = a.getAttribute('href') 
-      let element = document.querySelector(href)
+      let element = document.querySelector(href) //querySelector：获取到一个元素
       //.offsetTop：模块距离顶部的固定距离 不会因窗口滚动而改变
       let top = element.offsetTop 
       //scrollTo：滚动到(一个点到另一个点)
