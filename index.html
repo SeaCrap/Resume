@@ -261,11 +261,12 @@
       e.preventDefault() 
       let top = document.querySelector(e.currentTarget.getAttribute('href')).offsetTop
       
-      let n = 25 //一共动25次
-      let duration = 500 / n  //多长时间动一次
+      let n = 25 //共运动25次
+      let t = 500 / n //多久动一次
       let currentTop = window.scrollY //当前top值 滚动会有变化
       let targetTop = top - 80 //目标top值
-      let distance = (targetTop - currentTop) / n //每次移动多少距离
+      let S = targetTop - currentTop //总距离
+      let s = S / n //每次移动距离
       let i = 0 //次数
       let 闹钟 = setInterval(()=>{
         if(i === n){
@@ -273,8 +274,8 @@
           return //不return出去 i=i+1 会一直加下去
         } 
         i = i + 1
-        window.scrollTo(0, currentTop + distance * i) 
-      },duration)
+        window.scrollTo(0, currentTop + s * i) 
+      },t)
     }
   }
  </script>
