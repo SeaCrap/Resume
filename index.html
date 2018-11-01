@@ -234,17 +234,29 @@
     }else{
       topNavBar.classList.remove('sticky')
     }
-    let specialTags = document.querySelectorAll('[data-x]')
+    //找距窗口最近模块
+    let specialTags = document.querySelectorAll('[data-x]')// 找到所有包含标记data-x的模块；div[data-x]:找到所有标记data-x的div
     let minIndex = 0 //从第0个开始
     for(let i=1; i<specialTags.length; i++){//这里遍历就要从第1个开始
       if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
         minIndex = i
       }
     }
+    //消除所有模块active状态并给最小模块添加active
     for(let i=0; i<specialTags.length; i++){
       specialTags[i].classList.remove('active')
     }
     specialTags[minIndex].classList.add('active')
+    //找a标签
+    let id = specialTags[minIndex].id
+    let a = document.querySelector('a[href="#' + id + '"]')//通过 id 获取当前最小模块
+    let li = a.parentNode //找当前a标签父元素li
+    //找到所有li包括自己
+    let brothersAndMe = li.parentNode.children
+    for(let i=0; i<brothersAndMe.length; i++){
+      brothersAndMe[i].classList.remove('active')
+    }
+    brothersAndMe[minIndex].classList.add('active')
   }
 
   //导航下拉菜单以及动画效果
