@@ -1,3 +1,4 @@
+body{ background: #ccc;}
 *{ padding: 0; margin: 0;}
 .clearfix::after{ content: ''; display: block; clear: both;}
 a{  color: inherit;  text-decoration: none;}
@@ -15,7 +16,7 @@ hr{  height: 0;  border: none;  border-top: 1px solid #DEDEDE;}
 .set-welcome.active{  /*block 元素使用flex定位不会居中*/  /*display: block;*/  /*display: flex;}*/
 
 /*模块translateY设定到滚动之后动画的初始位置*/
-[data-x].offset{transform: translateY(50px);}
+[data-x].offset{transform: translateY(80px);}
 [data-x]{transform: translateY(0); transition: all 0.5s;}
 
 /*滚动之后做动画*/
@@ -92,7 +93,8 @@ body main .downloadResume:hover{  box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.3)}
 
 section.skills,
 section.seteWorks{  max-width: 940px;  margin: 0 auto;  margin-top: 60px;}
-section.skills h2{  text-align: center;  color: #3d4451;  font-size: 34px;  line-height: 1.2;  font-weight: 700;  margin-bottom: 30px;}
+section.skills h2,
+section.seteWorks h2{  text-align: center;  color: #3d4451;  font-size: 34px;  line-height: 1.2;  font-weight: 700;  margin-bottom: 30px;}
 section.skills h3{  font-size: 14px;  line-height: 1.1;  padding-right: 40px;}
 section.skills ol{  background-color: #fff;    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.3);  padding: 42px 50px 7px;}
 section.skills ol li{  float: left;  /*width: 50%;*/  width: 47%;  
@@ -111,5 +113,35 @@ section.skills .progressBar .progress{  height: 100%;  background-color: #E6686A
 
 section.skills.offset .progress{ transform: translateX(-100%);}
 
-section.seteWorks{ margin-bottom: 500px; padding: 100px;}
+section.seteWorks{ text-align: center; margin-bottom: 100px;}/*居中nav*/
+section.seteWorks nav{text-align: center; display: inline-block; vertical-align: top;}/*inline-block后ol又不居中了 给nav父元素添加text-align: center*/
+section.seteWorks nav ol{
+  /*转换为 linlin-block 后 一般都要添加 vertical-align: top; 消除底部间隙*/
+  display: inline-block;
+  vertical-align: top;
+}
+section.seteWorks nav ol li{ float: left; margin-right: 40px; cursor: pointer;}
+section.seteWorks nav ol li:last-child{ margin-right: 0;}
+section.seteWorks nav .bar{ background: white; height: 3px; border-radius: 2px; transition: all 0.3s;} /*都没有写宽度 bar默认跟nav一样宽 让nav边inline-block*/
+
+section.seteWorks nav .bar.state-1{ margin-left: 0; width: 13%;}
+section.seteWorks nav .bar.state-2{ margin-left: 72px; width: 14%;}
+section.seteWorks nav .bar.state-3{ margin-left: 144px; width: 38%;}
+
+section.seteWorks nav .bar-inner{ height: 100%; background: #E6686A; border-radius: 2px;}
+
+section.seteWorks .wroks{ position: relative;}
+section.seteWorks .wroks .big,
+section.seteWorks .wroks .small{ position: absolute;}
+
+
+
+
+
+
+
+
+
+
+
 

@@ -203,20 +203,43 @@
   
   <section data-x id="seteWorks" class="seteWorks">
     
-    <h2> 作品集</h2>
+    <h2>作品集</h2>
     
     <nav>
-      <ol>
-        <li>所有</li>
-        <li>框架</li>
-        <li>原声 JS&AMP;css</li>
+      <ol class="clearfix">
+        <li id="portfolio1">所有</li>
+        <li id="portfolio2">框架</li>
+        <li id="portfolio3">原声 JS&AMP;css</li>
       </ol>
+      <div id="portfolioBar" class="bar state-1">
+        <div class="bar-inner"></div>
+      </div>
     </nav>
 
-    <div class="jobs">
-      <div class="big"></div>
-      <div class="small"></div>
-      <div class="small"></div>
+    <script>
+      portfolio1.onclick = (e)=>{
+        portfolioBar.className = 'bar state-1'
+      }
+      portfolio2.onclick = ()=>{
+        portfolioBar.className = 'bar state-2'
+      }
+      portfolio3.onclick = ()=>{
+        portfolioBar.className = 'bar state-3'
+      }
+
+    </script>
+
+
+    <div class="wroks" style="height: 597px;">
+      <div class="big" style=" top:0; left:0;">
+        <img src="./img/left.jpg" alt="">
+      </div>
+      <div class="small" style="top:0; left: 645px;">
+        <img src="./img/right-top.jpg" alt="">
+      </div>
+      <div class="small" style="top: 312px; left: 645px;">
+        <img src="./img/right-bottom.jpg" alt="">
+      </div>
     </div>
   </section>
 <script src="//at.alicdn.com/t/font_549417_yc3s79cpq9n.js"></script>
@@ -231,17 +254,17 @@
     specialTags[i].classList.add('offset')
   }
   //导航动画
-  yyy()
+  findClosest()
   window.onscroll = (e)=>{
     if(window.scrollY > 0){
       topNavBar.classList.add('sticky')
     }else{
       topNavBar.classList.remove('sticky')
     }
-    yyy()
+    findClosest()
   }
 
-    function yyy(){
+    function findClosest(){
       //找距窗口最近模块
       let specialTags = document.querySelectorAll('[data-x]')// 找到所有包含标记data-x的模块；div[data-x]:找到所有标记data-x的div
       let minIndex = 0 //从第0个开始
