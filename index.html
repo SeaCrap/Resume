@@ -14,9 +14,9 @@
   </style>
 </head>
 <body>
-  <div id="setWelcome" class="set-welcome active">
+ <!-- <div id="setWelcome" class="set-welcome active">
     <div class="loading"></div>
-  </div>
+ </div>-->
   <div id="topNavBar" class="topNavBar">
     
     <div class="topNavBar-inner clearfix">
@@ -149,59 +149,59 @@
           HTML 5 &amp; css 3
         </h3>
         <div class="progressBar">
-          <div class="progress"></div>
+          <div class="progress" style="width:40%"></div>
         </div>
       </li> 
       <li>
         <h3>
           <!--&amp;转义-->
-          HTML 5 &amp; css 3
+          javaScript
         </h3>
         <div class="progressBar">
-          <div class="progress"></div>
+          <div class="progress" style="width:20%"></div>
         </div>
       </li>
       <li>
         <h3>
           <!--&amp;转义-->
-          HTML 5 &amp; css 3
+          jQuery 
         </h3>
         <div class="progressBar">
-          <div class="progress"></div>
+          <div class="progress" style="width:50%"></div>
         </div>
       </li>
       <li>
         <h3>
           <!--&amp;转义-->
-          HTML 5 &amp; css 3
+          Vue.js 
         </h3>
         <div class="progressBar">
-          <div class="progress"></div>
+          <div class="progress" style="width:30%"></div>
         </div>
       </li> 
       <li>
         <h3>
           <!--&amp;转义-->
-          HTML 5 &amp; css 3
+          React.js  
         </h3>
         <div class="progressBar">
-          <div class="progress"></div>
+          <div class="progress" style="width:40%"></div>
         </div>
       </li> 
       <li>
         <h3>
           <!--&amp;转义-->
-          HTML 5 &amp; css 3
+          Node.js
         </h3>
         <div class="progressBar">
-          <div class="progress"></div>
+          <div class="progress" style="width: 50%"></div>
         </div>
       </li>
 
     </ol>
   </section>
   
-  <section data-x id="seteWorks">
+  <section data-x id="seteWorks" class="seteWorks">
     
     <h2> 作品集</h2>
     
@@ -223,52 +223,59 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
 <script>
   // 加载动画
-  setTimeout(()=>{
-    setWelcome.classList.remove('active')
-  },2000)
-    
+  //setTimeout(()=>{
+    //setWelcome.classList.remove('active')
+  //},2000)
+  let specialTags = document.querySelectorAll('[data-x]')
+  for(let i=0; i<specialTags.length; i++){
+    specialTags[i].classList.add('offset')
+  }
   //导航动画
+  yyy()
   window.onscroll = (e)=>{
     if(window.scrollY > 0){
       topNavBar.classList.add('sticky')
     }else{
       topNavBar.classList.remove('sticky')
     }
-    //找距窗口最近模块
-    let specialTags = document.querySelectorAll('[data-x]')// 找到所有包含标记data-x的模块；div[data-x]:找到所有标记data-x的div
-    let minIndex = 0 //从第0个开始
-    for(let i=1; i<specialTags.length; i++){//这里遍历就要从第1个开始
-      if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
-        minIndex = i
-      }
-    }
-    //消除所有模块active状态并给最小模块添加active
-    for(let i=0; i<specialTags.length; i++){
-      specialTags[i].classList.remove('active')
-    }
-    specialTags[minIndex].classList.add('active')
-    //找a标签
-    let id = specialTags[minIndex].id
-    let a = document.querySelector('a[href="#' + id + '"]')//通过 id 获取当前最小模块
-    let li = a.parentNode //找当前a标签父元素li
-    //找到所有li包括自己
-    let brothersAndMe = li.parentNode.children
-    for(let i=0; i<brothersAndMe.length; i++){
-      brothersAndMe[i].classList.remove('active')
-    }
-    brothersAndMe[minIndex].classList.add('active')
+    yyy()
   }
 
-  //导航下拉菜单以及动画效果
-  let liTags = document.querySelectorAll('nav.menu ul li')
+    function yyy(){
+      //找距窗口最近模块
+      let specialTags = document.querySelectorAll('[data-x]')// 找到所有包含标记data-x的模块；div[data-x]:找到所有标记data-x的div
+      let minIndex = 0 //从第0个开始
+      for(let i=1; i<specialTags.length; i++){//这里遍历就要从第1个开始
+        if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+          minIndex = i
+        }
+      }
+
+      specialTags[minIndex].classList.remove('offset')//模块过度效果
+    
+      //找a标签
+      let id = specialTags[minIndex].id
+      let a = document.querySelector('a[href="#' + id + '"]')//通过 id 获取当前最小模块
+      let li = a.parentNode //找当前a标签父元素li
+      //找到所有li包括自己
+      let brothersAndMe = li.parentNode.children
+      for(let i=0; i<brothersAndMe.length; i++){
+        brothersAndMe[i].classList.remove('highlight')
+      }
+      li.classList.add('highlight')
+    }
+
+    //导航下拉菜单以及动画效果
+    let liTags = document.querySelectorAll('nav.menu ul li')
     for(let i=0; i<liTags.length; i++){
       liTags[i].onmouseenter = (e)=>{
-      e.currentTarget.classList.add('active')
-    }
-    liTags[i].onmouseleave = function(e){
-      e.currentTarget.classList.remove('active')
-    }
-  }
+        e.currentTarget.classList.add('active')
+      }
+      liTags[i].onmouseleave = function(e){
+        e.currentTarget.classList.remove('active')
+      }
+    } 
+
   //滚动到指定模块
   let aTags = document.querySelectorAll('nav.menu ul li a') 
   
