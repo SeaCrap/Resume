@@ -35,7 +35,7 @@ font-weight: bold;  border-top: 2px solid transparent;   border-bottom: 2px soli
 background: #E06567; height: 2px; animation: menuSlide 0.4s;}
 @keyframes menuSlide{ 0%{ width: 0;}  100%{ width: 100%;} }
 
-.topNavBar .submenu{  display: none;  position: absolute;  right: 0;  top: 100%;}
+.topNavBar .submenu{  display: none;  position: absolute;  right: 0;  top: 34px;}
 .topNavBar nav ul li.active .submenu{ display: block; background: #fff; font-size: 14px; 
 color: black; animation: submenuSlide 0.5s}
 .topNavBar .submenu li{  white-space: nowrap; padding: 3px 0;}
@@ -52,6 +52,7 @@ color: black; animation: submenuSlide 0.5s}
 .topNavBar .logo{ float: left;  padding: 2px;  font-weight: bold;  font-size: 24px;  font-family: "Arial Black";}
 .topNavBar .logo .rs{  color: #E6686A;  margin-right: 4px;}
 .topNavBar .logo .card{  color: inherit;}
+.icon {  width: 1em; height: 1em;  vertical-align: -0.15em;         fill: currentColor;  overflow: hidden;}
 
 .banner{  background: url(./img/bg.jpeg) center center no-repeat;  height: 600px;  background-size: cover;}
 .banner .mask{  height: 600px;  background-color: rgba(0,0,0,0.8);}
