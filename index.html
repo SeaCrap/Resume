@@ -221,17 +221,22 @@
   }
   //导航动画
   setTimeout (function(){
-    findClosest()
+    findClosetAndRemoveOffset()
   },500)
+
+  window.onscroll = (e)=>{
+       findClosetAndRemoveOffset()
+  }
+  
   window.onscroll = (e)=>{
     if(window.scrollY > 0){
       topNavBar.classList.add('sticky')
     }else{
       topNavBar.classList.remove('sticky')
     }
-    findClosest()
   }
-  function findClosest(){
+
+  function findClosetAndRemoveOffset(){
     //找距窗口最近模块
     let specialTags = document.querySelectorAll('[data-x]')// 找到所有包含标记data-x的模块；div[data-x]:找到所有标记data-x的div
     let minIndex = 0 //从第0个开始
