@@ -1,12 +1,11 @@
- //导航动画
-setTimeout (function(){
-  findClosetAndRemoveOffset()
-},500)
-
 let specialTags = document.querySelectorAll('[data-x]')
 for(let i=0; i<specialTags.length; i++){
   specialTags[i].classList.add('offset')
 }
+
+setTimeout (function(){
+  findClosetAndRemoveOffset()
+},500)
 
 window.addEventListener('scroll',(e)=>{
   findClosetAndRemoveOffset()
