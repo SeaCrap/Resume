@@ -1,5 +1,5 @@
-//console.log(window.Swiper) //检验轮播有没有引入成功 把给window添加的Sriper对象打出来
-
+!function(){
+  //console.log(window.Swiper) //检验轮播有没有引入成功 把给window添加的Sriper对象打出来
   //初始化Swripe
   var mySwiper = new Swiper ('.swiper-container', {
     // 垂直轮播
@@ -22,4 +22,6 @@
     //el: '.swiper-scrollbar',
     //},
   })
+
+}.call()
 
