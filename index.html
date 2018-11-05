@@ -224,17 +224,17 @@
     findClosetAndRemoveOffset()
   },500)
 
-  window.onscroll = (e)=>{
-       findClosetAndRemoveOffset()
-  }
+  window.addEventListener('scroll',(e)=>{
+    findClosetAndRemoveOffset()
+  })
   
-  window.onscroll = (e)=>{
+  window.addEventListener('scroll',(e)=>{
     if(window.scrollY > 0){
       topNavBar.classList.add('sticky')
     }else{
       topNavBar.classList.remove('sticky')
     }
-  }
+  })
 
   function findClosetAndRemoveOffset(){
     //找距窗口最近模块
