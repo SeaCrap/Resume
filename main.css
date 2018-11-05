@@ -1,19 +1,9 @@
-body{ background: #ccc;}
+body{ background: #FEFEFE}
 *{ padding: 0; margin: 0;}
 .clearfix::after{ content: ''; display: block; clear: both;}
 a{  color: inherit;  text-decoration: none;}
 ul,ol{  list-style: none;}
 hr{  height: 0;  border: none;  border-top: 1px solid #DEDEDE;}
-
-/*.loading{  height: 100px;  width: 100px;  position: relative;}
-.loading::before,
-.loading::after{  content: '';  width: 0px;  height: 0px;  border-radius: 50%;  background: black;
-  position: absolute;  left: 0;  top: 0;  right: 0;  bottom: 0;  margin: auto;  animation: s 1.5s linear infinite;}
-.loading::after{  animation-delay: 0.75s;}
-@keyframes s{  0%{ width: 0; height: 0; opacity: 1;}  100%{ width: 100px; height: 100px; opacity: 0;}}
-.set-welcome{  display: none;  position: fixed;  top: 0; left: 0; 
-  width: 100%; height: 100%;background: #ccc; z-index: 1; justify-content: center; align-items: center;}
-.set-welcome.active{  /*block 元素使用flex定位不会居中*/  /*display: block;*/  /*display: flex;}*/
 
 /*模块translateY设定到滚动之后动画的初始位置*/
 [data-x].offset{transform: translateY(80px);}
@@ -38,16 +28,16 @@ hr{  height: 0;  border: none;  border-top: 1px solid #DEDEDE;}
 .topNavBar nav ul{  list-style: none;  margin: 0;  padding: 0;}
 .topNavBar nav ul li{  margin: 0 17px;  text-align: center;  float: left; position: relative;}
 .topNavBar nav ul li a{  font-size: 12px;  color: inherit;  text-decoration: none;  
-  font-weight: bold;  border-top: 2px solid transparent;   border-bottom: 2px solid transparent;  padding: 5px 0;  display: block;}
+font-weight: bold;  border-top: 2px solid transparent;   border-bottom: 2px solid transparent;  padding: 5px 0;  display: block;}
 .topNavBar nav ul li.active a::after,
 .topNavBar nav ul li.highlight a::after{ 
   content: ''; display: block; position: absolute; top: 100%; left: 0; width: 100%; 
-  background: #E06567; height: 2px; animation: menuSlide 0.4s;}
+background: #E06567; height: 2px; animation: menuSlide 0.4s;}
 @keyframes menuSlide{ 0%{ width: 0;}  100%{ width: 100%;} }
 
 .topNavBar .submenu{  display: none;  position: absolute;  right: 0;  top: 100%;}
 .topNavBar nav ul li.active .submenu{ display: block; background: #fff; font-size: 14px; 
-  color: black; animation: submenuSlide 0.5s}
+color: black; animation: submenuSlide 0.5s}
 .topNavBar .submenu li{  white-space: nowrap; padding: 3px 0;}
 @keyframes submenuSlide{
   0%{
@@ -69,7 +59,7 @@ hr{  height: 0;  border: none;  border-top: 1px solid #DEDEDE;}
 .userCard{  max-width: 940px;  margin: 0 auto;  background-color: #fff;  color: black;  margin-top: -20%;  box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5)}
 .userCard .welcome{  background-color: #E6686A;  color: #fff;  display: inline-block;  padding: 4px 16px;  line-height: 22px;  position: relative;}
 .userCard .welcome .triangle{  border: 10px solid transparent;  width: 0px;  border-left-color: #E6686A;  
-  border-top-width: 0px;  position: absolute;  left: 5px;  top: 100%;}
+border-top-width: 0px;  position: absolute;  left: 5px;  top: 100%;}
 .userCard .picture{  float: left;}
 .userCard .text{  float: left;  margin-left: 65px;  width: 470px;}
 .userCard .text h1{  margin-top: 18px;}
@@ -86,15 +76,15 @@ hr{  height: 0;  border: none;  border-top: 1px solid #DEDEDE;}
 body main{  margin-top: -340px;}
 body main .downloadResume-wrapper{  text-align: center;}
 body main .downloadResume{  font-size: 14px;  line-height: 16px;  padding: 21px 55px;  border: 1px solid #CDCFD1;  
-  background: #EFEFEF;  display: inline-block;  border-radius: 2px;  color: #3d4451;  font-weight: bold;  margin: 32px 0;  transition: box-shadow 1s;}
+background: #EFEFEF;  display: inline-block;  border-radius: 2px;  color: #3d4451;  font-weight: bold;  margin: 32px 0;  transition: box-shadow 1s;}
 body main .downloadResume:hover{  box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.3)}
 
 .selfIntroduction{  max-width: 940px;  margin: 0 auto;  text-align: center;}
 
 section.skills,
-section.seteWorks{  max-width: 940px;  margin: 0 auto;  margin-top: 60px;}
+section.portfolio{  max-width: 940px;  margin: 0 auto;  margin-top: 60px;}
 section.skills h2,
-section.seteWorks h2{  text-align: center;  color: #3d4451;  font-size: 34px;  line-height: 1.2;  font-weight: 700;  margin-bottom: 30px;}
+section.portfolio h2{  text-align: center;  color: #3d4451;  font-size: 34px;  line-height: 1.2;  font-weight: 700;  margin-bottom: 30px;}
 section.skills h3{  font-size: 14px;  line-height: 1.1;  padding-right: 40px;}
 section.skills ol{  background-color: #fff;    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.3);  padding: 42px 50px 7px;}
 section.skills ol li{  float: left;  /*width: 50%;*/  width: 47%;  
@@ -104,8 +94,8 @@ section.skills ol li{  float: left;  /*width: 50%;*/  width: 47%;
   这样做有个bug 右边三个li默认右边也有20px padding 这样就导致左右间距不一样
   解决方法：li左浮动，偶数li右浮，li宽度50%以下，根据间距大小修改。
    */
-  box-sizing: border-box;
-  /*padding-right: 20px;*/
+box-sizing: border-box;
+/*padding-right: 20px;*/
 }
 section.skills ol li:nth-child(even){  float: right;}
 section.skills .progressBar{  height: 5px;  background-color: #FAE1E1;  border-radius: 2px;  margin: 4px 0 40px; overflow: hidden;} 
@@ -113,28 +103,10 @@ section.skills .progressBar .progress{  height: 100%;  background-color: #E6686A
 
 section.skills.offset .progress{ transform: translateX(-100%);}
 
-section.seteWorks{ text-align: center; margin-bottom: 100px;}/*居中nav*/
-section.seteWorks nav{text-align: center; display: inline-block; vertical-align: top;}/*inline-block后ol又不居中了 给nav父元素添加text-align: center*/
-section.seteWorks nav ol{
-  /*转换为 linlin-block 后 一般都要添加 vertical-align: top; 消除底部间隙*/
-  display: inline-block;
-  vertical-align: top;
-}
-section.seteWorks nav ol li{ float: left; margin-right: 40px; cursor: pointer;}
-section.seteWorks nav ol li:last-child{ margin-right: 0;}
-section.seteWorks nav .bar{ background: white; height: 3px; border-radius: 2px; transition: all 0.3s;} /*都没有写宽度 bar默认跟nav一样宽 让nav边inline-block*/
-
-section.seteWorks nav .bar.state-1{ margin-left: 0; width: 13%;}
-section.seteWorks nav .bar.state-2{ margin-left: 72px; width: 14%;}
-section.seteWorks nav .bar.state-3{ margin-left: 144px; width: 38%;}
-
-section.seteWorks nav .bar-inner{ height: 100%; background: #E6686A; border-radius: 2px;}
-
-section.seteWorks .wroks{ position: relative;}
-section.seteWorks .wroks .big,
-section.seteWorks .wroks .small{ position: absolute;}
-
-
+section.portfolio{ text-align: center; margin-bottom: 100px;}/*居中nav*/
+section.portfolio .portfolio-inner{ position: relative;}
+section.portfolio .swiper-container{ width: 800px; height: 450px;}
+section.portfolio .portfolio-inner .swiper-button-prev{ position: absolute; top: 100%; left: 0;}
 
 
 
