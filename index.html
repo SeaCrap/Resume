@@ -213,7 +213,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js"></script>
 <script src="./js/init-swiper.js"></script>
-
+<script src="./js/auto-slide-up.js"></script>
 <script>
   let specialTags = document.querySelectorAll('[data-x]')
   for(let i=0; i<specialTags.length; i++){
@@ -228,14 +228,6 @@
     findClosetAndRemoveOffset()
   })
   
-  window.addEventListener('scroll',(e)=>{
-    if(window.scrollY > 0){
-      topNavBar.classList.add('sticky')
-    }else{
-      topNavBar.classList.remove('sticky')
-    }
-  })
-
   function findClosetAndRemoveOffset(){
     //找距窗口最近模块
     let specialTags = document.querySelectorAll('[data-x]')// 找到所有包含标记data-x的模块；div[data-x]:找到所有标记data-x的div
@@ -249,14 +241,10 @@
     
     //找a标签
     let id = specialTags[minIndex].id
-    console.log(specialTags[minIndex].id)
     let a = document.querySelector('a[href="#' + id + '"]')//通过 id 获取当前最小模块
-    console.log(a)
     let li = a.parentNode //找当前a标签父元素li
-    console.log(li)
     //找到所有li包括自己
     let brothersAndMe = li.parentNode.children
-    console.log(brothersAndMe)
     for(let i=0; i<brothersAndMe.length; i++){
       brothersAndMe[i].classList.remove('highlight')
     }
