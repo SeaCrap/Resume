@@ -9,13 +9,13 @@
     },
     bindEvents:function(){
       var view = this.view       
-      window.addEventListener('scroll',(e)=>{
+      window.addEventListener('scroll',function(e){
         if(window.scrollY > 0){
-         this // 此时的 this 是用户滚动的元素 所以要绑定 this 这样的this才是自己需要改变的
+         this 
         }else{
           view.classList.remove('sticky')
         }
-      }.bind(this)) //绑定 this
+      }.bind(this))
     },
     active: function(){
       this.view.classList.add('sticky')
