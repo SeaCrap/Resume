@@ -9,13 +9,13 @@
     },
     bindEvents:function(){
       var view = this.view       
-      window.addEventListener('scroll',function(e){
+      window.addEventListener('scroll',(e)=>{ //箭头函数没有 this 箭头函数内外 this 不变
         if(window.scrollY > 0){
-         this 
+         this.active() //所以这里的 this 相当于一个变量 在上一级找到了 var.view = this.view 
         }else{
-          view.classList.remove('sticky')
+          this.deactive()
         }
-      }.bind(this))
+      }
     },
     active: function(){
       this.view.classList.add('sticky')
