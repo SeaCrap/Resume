@@ -34,5 +34,5 @@
     }
     li.classList.add('highlight')
   }
- 
+
 }.call()

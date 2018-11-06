@@ -105,10 +105,9 @@ section.skills .progressBar .progress{  height: 100%;  background-color: #E6686A
 section.skills.offset .progress{ transform: translateX(-100%);}
 
 section.portfolio{ text-align: center; margin-bottom: 100px;}/*居中nav*/
-section.portfolio .portfolio-inner{ position: relative;}
 section.portfolio .swiper-container{ width: 800px; height: 450px;}
-section.portfolio .portfolio-inner .swiper-button-prev{ position: absolute; top: 100%; left: 0;}
-
+section.portfolio .swiper-button-prev,
+section.portfolio .swiper-button-next{ margin-top: auto; }
 
 
 

@@ -1,6 +1,8 @@
 !function(){
+  var view = document.querySelector('nav.menu')
+  view.style.border = '1px solid red'
   //导航下拉菜单以及动画效果
-  let liTags = document.querySelectorAll('nav.menu ul li')
+  let liTags = view.querySelectorAll('nav.menu ul li')
   for(let i=0; i<liTags.length; i++){
     liTags[i].onmouseenter = (e)=>{
       e.currentTarget.classList.add('active')
