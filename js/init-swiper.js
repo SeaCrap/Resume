@@ -1,21 +1,29 @@
 !function(){
   
   var view = document.querySelector('#mySlides')
-  var controller = (view)=>{
-    var mySwiper = new Swiper (view.querySelector('.swiper-container'), {
-      loop: true, //循环轮播
+  var controller = {
+    view: null,
+    swiper: null, //用到了this.swiper 初始化一下swiper
+    init: function(view){
+      this.view = view //接受到view存起来
+      this.initSwiper() //绑定事件
+    },
+    initSwiper: function(){
+      this.wiper = new Swiper (view.querySelector('.swiper-container'), {
+        loop: true, 
 
-      pagination: {
-        el: '.swiper-pagination',
-      },
+        pagination: {
+          el: '.swiper-pagination',
+        },
 
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    })
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      })
+    }
   }
   
-  controller(view)
+  controller.init(view)
 }.call()
 

@@ -15,7 +15,7 @@
         }else{
           this.deactive()
         }
-      }
+      })
     },
     active: function(){
       this.view.classList.add('sticky')
