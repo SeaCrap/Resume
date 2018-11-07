@@ -11,7 +11,7 @@
       var view = this.view       
       window.addEventListener('scroll',(e)=>{ //箭头函数没有 this 箭头函数内外 this 不变
         if(window.scrollY > 0){
-         this.active() //所以这里的 this 相当于一个变量 在上一级找到了 var.view = this.view 
+          this.active() //所以这里的 this 相当于一个变量 在上一级找到了 var.view = this.view 
         }else{
           this.deactive()
         }
@@ -21,7 +21,7 @@
       this.view.classList.add('sticky')
     },
     deactive: function(){
-    this.view.classList.remove('sticky')
+      this.view.classList.remove('sticky')
     }
 
   }
