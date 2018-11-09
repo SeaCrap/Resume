@@ -18,7 +18,7 @@ query.find()//查找messages
       let arry = messages.map((item)=> item.attributes)
       arry.forEach((item)=>{
         let li = document.createElement('li')
-        li.innerText = item.content 
+        li.innerText = `${item.name}: ${item.content}`//读 name 和 content
         //这是避免生成全局变量而这只的局部变量
         let messgaeList = document.querySelector('#messageList')
         messageList.appendChild(li)
@@ -47,12 +47,20 @@ myForm.addEventListener('submit', function(e){
   e.preventDefault()
   //content 是获取 name=content 的 input 的 value
   let content = myForm.querySelector('input[name=content]').value
+  let name = myForm.querySelector('input[name=name]').value
   var Message = AV.Object.extend('Message');
   var message = new Message();
   message.save({
-    'content': content
+    'name': name, //存name
+    'content': content //存 content
   }).then(function(object) {
-    window.location.reload()//帮用户刷新页面
+    //window.location.reload()//帮用户刷新页面
+     let li = document.createElement('li')
+        li.innerText = `${object.attributes.name}: ${object.attributes.content}`//读 name 和 content
+        //这是避免生成全局变量而这只的局部变量
+        let messgaeList = document.querySelector('#messageList')
+        messageList.appendChild(li)
+        myForm.querySelector('input[name=content]').value = ''//清楚输入内容：用户提交之后 value为空
   })
 })
 
