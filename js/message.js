@@ -15,7 +15,7 @@
       return query.find()//返回 Promise 对象
     },
     
-    save: function(){// 存储数据      
+    save: function(name, content){// 存储数据      
       var Message = AV.Object.extend('Message');
       var message = new Message();
       //保存
@@ -23,7 +23,7 @@
         'name': name, 
         'content': content 
       }) 
-    },
+    }
   }
   var controller = {
     view: null,
@@ -57,7 +57,7 @@
     //这里除了绑定事件什么也不做 把获取message和提交message分离出去
     bindEvents: function(){
       //监听submit 提交
-      this.form.addEventListener('submit', function(e){
+      this.form.addEventListener('submit', (e)=>{
         //阻止默认事件 防止刷新页面
         e.preventDefault()
         this.saveMessage()
@@ -72,7 +72,7 @@
       //content 是获取 name=content 的 input 的 value
       let content = myForm.querySelector('input[name=content]').value
       let name = myForm.querySelector('input[name=name]').value
-      this. moedl.save(name, content).then(function(object) {
+      this. model.save(name, content).then(function(object) {
         //展示
         let li = document.createElement('li')
         li.innerText = `${object.attributes.name}: ${object.attributes.content}`//读 name 和 content
