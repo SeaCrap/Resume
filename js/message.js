@@ -1,38 +1,30 @@
 !function(){
-  
+
   var model = Model({ resourceName:'Message'})
-  
+
   var view = View('section.message') 
-  
-  var controller = {
-    view: null,
-    messageList: null,
-    model: null,
-    init: function(view, model){
-      this.view = view
-      this.model = model
-            
+
+  var controller = Controller({
+    init: function(view, controller){
       this.messageList = view.querySelector('#messageList')
       this.form = view.querySelector('form')
-      this.model.init()
       this.loadMessages()
-      this.bindEvents()
     },
-   
+
     //加载message
     loadMessages: function(){
       this.model.fetch().then(
-          (messages)=>{ //这里使用箭头函数，要确保this对外不变
-            let arry = messages.map((item)=> item.attributes)
-            arry.forEach((item)=>{
-              let li = document.createElement('li')
-              li.innerText = `${item.name}: ${item.content}`
-              this.messageList.appendChild(li)
-            })
-          }
-        )   
+        (messages)=>{ //这里使用箭头函数，要确保this对外不变
+          let arry = messages.map((item)=> item.attributes)
+          arry.forEach((item)=>{
+            let li = document.createElement('li')
+            li.innerText = `${item.name}: ${item.content}`
+            this.messageList.appendChild(li)
+          })
+        }
+      )   
     },
-    
+
     //这里除了绑定事件什么也不做 把获取message和提交message分离出去
     bindEvents: function(){
       //监听submit 提交
@@ -42,7 +34,7 @@
         this.saveMessage()
       })
     },
-    
+
     //获取/保存/展示留言
     saveMessage: function(){
       //下面好多使用到了Myform 这里可以声明一下
@@ -63,8 +55,10 @@
         myForm.querySelector('input[name=content]').value = ''//清楚输入内容：用户提交之后 value为空
       })
     }
-  }
-  controller.init(view, model)
+  })
+    controller.init(view, model)
+
 }.call()
+
 
 

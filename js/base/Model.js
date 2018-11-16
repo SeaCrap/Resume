@@ -1,3 +1,9 @@
+
+// var model = Model({resourceName:'Message'})
+// model.init()
+// model.fetch()
+// model.save({ 'name': xxx, 'content': xxx})
+
 window.Model = function(options){//options:选项
   let resourceName = options.resourceName //资源名字
   return {
@@ -14,7 +20,7 @@ window.Model = function(options){//options:选项
       return query.find()//返回 Promise 对象
     },
     
-    save: function(){// 存储数据      
+    save: function(object){// 存储数据      
       var X = AV.Object.extend(resourceName);
       var x = new X();
       //保存
