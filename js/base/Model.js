@@ -16,9 +16,9 @@ window.Model = function(options){//options:选项
     
     save: function(){// 存储数据      
       var X = AV.Object.extend(resourceName);
-      var X = new X();
+      var x = new X();
       //保存
-      return X.save(object) //这里接收到的参数很多，会包装成一个对象
+      return x.save(object) //这里接收到的参数很多，会包装成一个对象
     }
 
   }
