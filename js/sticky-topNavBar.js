@@ -1,6 +1,6 @@
 //简单版
 !function(){
-  var view = document.querySelector('#topNavBar')
+  var view = window.View('#topNavBar')//这里window可以省略 
   var controller = {     
     view: null,
     init: function(view){ 

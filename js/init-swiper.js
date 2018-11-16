@@ -1,5 +1,5 @@
 !function(){
-  var view = document.querySelector('#mySlides')
+  var view = View('#mySlides')
   var controller = {
     //controller三个重要属性和一个 init 方法。view/swiper/swiperOptions/init()
     view: null,

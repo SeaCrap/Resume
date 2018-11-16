@@ -1,30 +1,9 @@
 !function(){
-  var view = document.querySelector('section.message') 
-
-  var model = {
-   //初始化AV
-    init: function(){
-      var APP_ID = '4z3xOPBFrVM3sTXGGPQ1DuNJ-gzGzoHsz';
-      var APP_KEY = 'u86ebQHzADzbAxBPUOHItGPN';
-
-      AV.init({ appId: APP_ID, appKey: APP_KEY})
-    },
-
-    fetch: function(){//获取数据
-      var query = new AV.Query('Message');//初始化AV对象
-      return query.find()//返回 Promise 对象
-    },
-    
-    save: function(name, content){// 存储数据      
-      var Message = AV.Object.extend('Message');
-      var message = new Message();
-      //保存
-     return message.save({//返回 promise 对象
-        'name': name, 
-        'content': content 
-      }) 
-    }
-  }
+  
+  var model = Model({ resourceName:'Message'})
+  
+  var view = View('section.message') 
+  
   var controller = {
     view: null,
     messageList: null,
@@ -72,7 +51,9 @@
       //content 是获取 name=content 的 input 的 value
       let content = myForm.querySelector('input[name=content]').value
       let name = myForm.querySelector('input[name=name]').value
-      this. model.save(name, content).then(function(object) {
+      this. model.save({
+        'name':name, 'content':content //这里要传入一个对象
+      }).then(function(object) {
         //展示
         let li = document.createElement('li')
         li.innerText = `${object.attributes.name}: ${object.attributes.content}`//读 name 和 content
